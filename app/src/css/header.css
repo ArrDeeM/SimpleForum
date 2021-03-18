@@ -1,0 +1,7 @@
+.main-header {
+  width: 100%;
+  display: table;
+}
+.header-right {
+  display: table-cell;
+}
