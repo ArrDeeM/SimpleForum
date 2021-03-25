@@ -6,7 +6,6 @@ import Login from './Login';
 import PostFormContainer from "./postformcontainer.js";
 const ForumRouter = () => (
     <Switch>
-      <Route exact path="/" component={Login} />
       <Route exact path="/home" component={MainPageContainer} />
       <Route exact path="/post" component={PostFormContainer} />
       <Route exact path="/:postId" component={PostViewContainer} />

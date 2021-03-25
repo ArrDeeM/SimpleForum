@@ -1,9 +1,15 @@
 import React, { Component } from "react";
-import { NavLink, Link } from 'react-router-dom';
+import { Redirect, NavLink, Link } from 'react-router-dom';
 import ForumRouter from "./router.js"
 import '../css/header.css';
 
 class Header extends Component {
+
+  handleSubmit = e => {
+    e.preventDefault();
+    <Redirect to="/" />
+    window.location.reload(false);
+  }
 
   render () {
     return (
@@ -14,11 +20,9 @@ class Header extends Component {
           </Link>
         </div>
         <div className="header-right">
-          <Link to = '/'>
-          <button type="submit">
+          <button type="submit" onClick={this.handleSubmit}>
               Sign Out
           </button>
-          </Link>
         </div>
       </div>
     );

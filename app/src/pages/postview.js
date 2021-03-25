@@ -51,7 +51,7 @@ class PostView extends Component {
       //console.log("Do we get data: ", data)
       promise2.then((data2) => {
         this.setState({
-          post: data,
+          post: data.post,
           comments: data2.comments
         });
       });
@@ -63,7 +63,7 @@ class PostView extends Component {
     if(this.state.post == null){
       return null;
     } else {
-      console.log('Where are we?',this.props);
+      console.log('Where are we?',this.state,this.props);
       return(
         <div className="main-body">
           <div className="post-view">

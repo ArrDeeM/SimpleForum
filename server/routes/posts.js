@@ -95,7 +95,9 @@ exports.getPost = function (req, res) {
           body: results[i].Body
         }
       }
-      res.json(add);
+      res.json({
+        post: add
+      });
     }
   });
 }
