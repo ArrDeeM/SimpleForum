@@ -20,7 +20,8 @@ class Header extends Component {
           </Link>
         </div>
         <div className="header-right">
-          <button type="submit" onClick={this.handleSubmit}>
+          <h2>{this.props.user}</h2>
+          <button type="header-button" onClick={this.handleSubmit}>
               Sign Out
           </button>
         </div>

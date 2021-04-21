@@ -103,7 +103,6 @@ exports.getPost = function (req, res) {
 }
 
 exports.postPosts = function (req, res) {
-  console.log("Post check: ",req);
   //get highest id
   var highest = 0;
   var sql = 'select MAX(Post_Id) from Posts';
@@ -210,7 +209,7 @@ exports.postUTags = function (req, res) {
     }
   }
   sql += ") where Username like concat('%',?,'%')"
-  connectionPool.query(sql,req.body.title,(error, results, fields) => {
+  connectionPool.query(sql,req.body.user,(error, results, fields) => {
     if (error) {
       console.log(error);
       res.status(502).json({ error });

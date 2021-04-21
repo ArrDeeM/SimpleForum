@@ -4,7 +4,9 @@
   margin-right: 50px;
   margin-bottom: 10px;
 }
-.postlist {
+.post-view {
+  padding:0 50px;
+  border-bottom: 1px solid black;
 
 }
 .taglist {

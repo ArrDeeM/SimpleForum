@@ -2,6 +2,7 @@ CREATE DATABASE IF NOT EXISTS forum;
 USE forum;
 
 DROP TABLE IF EXISTS posts;
+--Could add blob for images but not advisable
 CREATE TABLE posts(
     `Post_Id` INT,
     `Username` VARCHAR(255),

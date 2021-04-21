@@ -27,12 +27,11 @@ class PostView extends Component {
         post: this.props.match.params.postId,
         user: this.props.user
       })
-    }).then(response => {
+    }).then(res => res.json()).then((data) => {
       this.setState({
-        currentMessage: ''
+        currentMessage: '',
+        comments: Object.assign(this.state.comments,data.comments)
       });
-      this.props.history.push(this.props.location.pathname);
-      window.location.reload(false);
     });
   }
 
@@ -58,19 +57,20 @@ class PostView extends Component {
     });
   }
 
+
+
   render () {
-    //console.log(this.props, this.state);
     if(this.state.post == null){
       return null;
     } else {
-      console.log('Where are we?',this.state,this.props);
       return(
         <div className="main-body">
           <div className="post-view">
             <h1> {this.state.post.title} </h1>
-            <h2> By: {this.state.post.username} </h2>
+            <h5> By: {this.state.post.username} </h5>
             <p> {this.state.post.body} </p>
           </div>
+          <div className="comment-view">
           <textarea className="comment-form-input" placeholder="Type a comment..." value={this.state.currentMessage} onChange={this.updateCurrentMessage} />
           <button type="submit" onClick={this.handleSubmit}>
               Comment
@@ -83,6 +83,7 @@ class PostView extends Component {
               })}
             </ul>
           </section>
+          </div>
         </div>
       );
     }

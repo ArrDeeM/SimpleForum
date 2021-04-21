@@ -22,6 +22,21 @@ class PostListItem extends Component {
     });
   }
 
+  componentDidUpdate(prevProps,prevState) {
+    if (this.props.id !== prevProps.id) {
+      var promise;
+      promise = new Promise((result) => {
+        const url = "http://localhost:4000/api/tags/v?post=" + this.props.id;
+        result(fetch(url).then(res => res.json()))
+      });
+      promise.then((data) => {
+        this.setState({
+          tags: data.tags
+        })
+      });
+    }
+  }
+
   render () {
     console.log("Tag check for post ",this.props.id, this.state.tags);
     if (this.props.title != null && this.props.user != null){

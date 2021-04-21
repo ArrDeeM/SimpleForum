@@ -39,8 +39,7 @@ class Posts extends Component {
   }
 
   handleInput = e => {
-    //value has spaces, url no like spaces, but work no?
-    console.log("Search Input: ", e);
+    console.log("Search Input: ", e.target.value);
     console.log("Do tags exist: ", this.state.tags);
     var promise;
     if (this.state.searchtype === 'title'){
@@ -50,7 +49,6 @@ class Posts extends Component {
           result(fetch(url).then(res => res.json()))
         });
       } else {
-        console.log("Wrong");
         promise = new Promise((result) => {
           const url = "http://localhost:4000/api/postswithtag";
           result(fetch(url, {
@@ -70,7 +68,6 @@ class Posts extends Component {
           result(fetch(url).then(res => res.json()))
         });
       } else {
-        console.log("Also Wrong");
         promise = new Promise((result) => {
           const url = "http://localhost:4000/api/userwithtag";
           result(fetch(url, {
@@ -151,6 +148,11 @@ class Posts extends Component {
                 onChange={this.handleInput}
                 placeholder={placeholder}
               />
+            </div>
+            <div>
+            Using tags: {Object.values(this.state.tags).map((tag) => {
+              return tag + ", ";
+            })}
             </div>
             <ul className='postlist'>
               {Object.values(this.state.posts).map((post) => {

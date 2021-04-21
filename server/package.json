@@ -7,10 +7,10 @@
   },
   "dependencies": {
     "cors": "2.8.4",
-    "debug": "~2.6.9",
+    "debug": "^2.6.9",
     "express": "^4.16.4",
-    "mysql": "^2.17.1",
-    "mock-req-res": "^1.1.1"
+    "mock-req-res": "^1.1.1",
+    "mysql": "^2.17.1"
   },
   "devDependencies": {
     "morgan": "^1.9.1",
